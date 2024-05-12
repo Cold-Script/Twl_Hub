@@ -1,8 +1,9 @@
 --[
+
       /\_/\
-     (  •-•)
+     (  •-•)                     [BETA ESP]
      ( >❤️>)              Thanks for you use ESP me!☺️
-      |_|_|
+      |_|_|                    By #Cold_lol9168
 ]--
 if Better_ESP then return Better_ESP end
 
@@ -45,7 +46,7 @@ local module = {
             Max = math.huge
         },
         Health = {
-            Enabled = true,
+            Enabled = false,
             Type = "Percentage" -- "Fraction"
         },
         Tracer = {
@@ -59,8 +60,8 @@ local module = {
             AlwaysOnTop = true,
             Color = col3new(1, 1, 1),
             Transparency = {
-                Fill = 0.75,
-                Outline = 0.75
+                Fill = 0.85, --Boost FPS
+                Outline = 0.85 --Boost FPS
             }
         }
     }
@@ -348,5 +349,5 @@ connections.Update = RunService.RenderStepped:Connect(function()
         end
     end
 end)
-getgenv().Vynixu_ESPModule = module
+getgenv().Better_ESP = module
 return module
