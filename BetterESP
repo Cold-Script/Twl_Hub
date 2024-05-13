@@ -1,11 +1,11 @@
 --[
 
       /\_/\
-     (  •-•)                     [BETA ESP]
+     (  •-•)                      [BETA ESP]
      ( >❤️>)              Thanks for you use ESP me!☺️
       |_|_|                    By #Cold_lol9168
 ]--
-if Better_ESP then return Better_ESP end
+if ESP then return ESP end -- silly goose
 
 -- Services
 local Players = game:GetService("Players")
@@ -35,33 +35,33 @@ local table_insert = table.insert
 local string_lower = string.lower
 
 local module = {
-    Containers = {},
-    Connections = {},
-    Config = {
-        TextSize = 16,
-        Rainbow = true,
-        ColorOverride = nil,
-        Distance = {
-            Enabled = true,
-            Max = math.huge
+Containers = {},
+Connections = {},
+        Config = {
+                   TextSize = 16,
+                   Rainbow = false,
+                   ColorOverride = nil,
+                   Distance = {
+                   Enabled = true,
+                   Max = math.huge
         },
         Health = {
-            Enabled = false,
-            Type = "Percentage" -- "Fraction"
+                   Enabled = true,
+                   Type = "Percentage" -- "Fraction"
         },
         Tracer = {
-            Enabled = true,
-            Thickness = 0,
-            Color = col3new(1, 1, 1),
-            From = vec2new(localCamera.ViewportSize.X / 2, localCamera.ViewportSize.Y)
+                   Enabled = true,
+                   Thickness = 1,
+                   Color = col3new(1, 1, 1),
+                   From = vec2new(localCamera.ViewportSize.X / 2, localCamera.ViewportSize.Y)
         },
         Highlight = {
-            Enabled = true,
-            AlwaysOnTop = true,
-            Color = col3new(1, 1, 1),
-            Transparency = {
-                Fill = 0.85, --Boost FPS
-                Outline = 0.85 --Boost FPS
+                   Enabled = true,
+                   AlwaysOnTop = true,
+                   Color = col3new(1, 1, 1),
+                   Transparency = {
+                   Fill = 0.85,
+                   Outline = 0.85
             }
         }
     }
@@ -221,7 +221,7 @@ function module:Unload()
     for i, _ in self do
         self[i] = nil
     end
-    getgenv().Better_ESP = nil
+    getgenv().ESP = nil
 end
 
 -- Main
@@ -311,7 +311,7 @@ connections.Update = RunService.RenderStepped:Connect(function()
                             if #args > 1 then
                                 local hType = string_lower(eHealth.Type)
                                 if hType == "percentage" then
-                                    text = `[{math_clamp(math_floor(100 / args[2] * args[1] * 10) / 10, 0, 100)}%]`
+                                    text = `[{math_clamp(math_floor(100 / args[2] * args[1] * 10) / 10, 0, 100)} Health]`
                                 elseif hType == "fraction" then
                                     text = `[{math_floor(math_max(args[1], 0))}/{math_floor(args[2])}]`
                                 end
@@ -349,5 +349,5 @@ connections.Update = RunService.RenderStepped:Connect(function()
         end
     end
 end)
-getgenv().Better_ESP = module
+getgenv().ESP = module
 return module
