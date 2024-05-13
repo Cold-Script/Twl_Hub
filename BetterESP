@@ -221,7 +221,7 @@ function module:Unload()
     for i, _ in self do
         self[i] = nil
     end
-    getgenv().Vynixu_ESPModule = nil
+    getgenv().Better_ESP = nil
 end
 
 -- Main
